@@ -165,7 +165,7 @@
             const match = text.match(/\/ ([^\/]+) \//);
             if (match) text = 'BIP ' + match[1];
           } else if (item.flow === 'BBNZ1' && item.id.startsWith('Q.DE.Y.G.')) {
-            const shortLabels = {
+            const shortLabels = {			
                 'Q.DE.Y.G.0108.A': 'Inländische Verwendung',
                 'Q.DE.Y.G.0103.A': 'Private Konsumausgaben',
                 'Q.DE.S.G.0106.A': 'Staatskonsum',
@@ -194,6 +194,9 @@
                 'Q.DE.Y.G.0178.A': 'Private Gewerbliche Anlagen'              
             };
             text = shortLabels[item.id] || text;
+          } else if (item.id === 'Q.DE.N.H.0000.L') {
+            // Spezieller Shortlabel für Deutschland BIP
+            text = 'Deutschland - Bruttoinlandsprodukt - preisbereinigt';
           }
           
           text = text.replace(/-/g, ' ');
